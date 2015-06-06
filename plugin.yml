@@ -1,0 +1,6 @@
+name: PlayerInfo
+description: Give custom perks to players across hubs
+author: FearMig
+website: www.github.com/fearmig
+version: 1.0
+main: org.mig.playerinfo.PlayerInfo

@@ -1,0 +1,8 @@
+# Default Configuration File
+
+#MySql information
+MySqlHost: localhost
+MySqlPort: 3306
+MySqlUsername: root
+MySqlPassword: password
+MySqlDatabase: PlayerInfo

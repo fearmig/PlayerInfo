@@ -16,7 +16,7 @@ public class MySqlManager {
 	 * constructor
 	 */
 	public MySqlManager(){
-		main = PlayerInfo.main;
+		main = PlayerInfo.getMain();
 	}
 	
 	/*

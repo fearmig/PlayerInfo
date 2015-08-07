@@ -16,8 +16,8 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 
 public class PlayerInfo extends JavaPlugin{
-	public static PlayerInfo main;
-	public static MySqlManager sql;
+	private static PlayerInfo main;
+	private static MySqlManager sql;
 	/*
 	 * Method that invokes on enable of the plugin.
 	 */
@@ -28,7 +28,7 @@ public class PlayerInfo extends JavaPlugin{
 		
 		//register the event listner
 		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
-		main = this;
+		setMain(this);
 		sql = new MySqlManager();
 		
 		//try to setup the database and if it fails disable the plugin.
@@ -39,7 +39,7 @@ public class PlayerInfo extends JavaPlugin{
 			e.printStackTrace();
 		}
 		
-		main = this;
+		setMain(this);
 	}
 	/*
 	 * Disables the plugin and cleans up any possiblities of memory leaks to be safe.
@@ -47,5 +47,29 @@ public class PlayerInfo extends JavaPlugin{
 	public void onDisable(){
 		main = null;
 		sql = null;
+	}
+	/**
+	 * @return the main
+	 */
+	public static PlayerInfo getMain() {
+		return main;
+	}
+	/**
+	 * @param main the main to set
+	 */
+	public static void setMain(PlayerInfo main) {
+		PlayerInfo.main = main;
+	}
+	/**
+	 * @return the main
+	 */
+	public static MySqlManager getSql() {
+		return sql;
+	}
+	/**
+	 * @param main the main to set
+	 */
+	public static void setMain(MySqlManager sql) {
+		PlayerInfo.sql = sql;
 	}
 }

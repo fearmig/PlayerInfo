@@ -26,10 +26,10 @@ public class PlayerListener implements Listener{
 		InetSocketAddress ia = p.getAddress();
 		try {
 			EntryTransaction et = new EntryTransaction(p.getUniqueId().toString(), ia.getHostString(), 
-					p.getName(), PlayerInfo.main.getServer().getIp()+":"
-					+ PlayerInfo.main.getServer().getPort(), PlayerInfo.sql.getDB());
+					p.getName(), PlayerInfo.getMain().getServer().getIp()+":"
+					+ PlayerInfo.getMain().getServer().getPort(), PlayerInfo.getSql().getDB());
 			
-			et.runTaskAsynchronously(PlayerInfo.main);
+			et.runTaskAsynchronously(PlayerInfo.getMain());
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,9 +45,9 @@ public class PlayerListener implements Listener{
 		
 		Player p = event.getPlayer();
 		try {
-			LeaveTransaction lt = new LeaveTransaction(p.getUniqueId().toString(), PlayerInfo.sql.getDB());
+			LeaveTransaction lt = new LeaveTransaction(p.getUniqueId().toString(), PlayerInfo.getSql().getDB());
 			
-			lt.runTaskAsynchronously(PlayerInfo.main);
+			lt.runTaskAsynchronously(PlayerInfo.getMain());
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,9 +65,9 @@ public class PlayerListener implements Listener{
     public void onKick(PlayerKickEvent event) {
 		Player p = event.getPlayer();
 		try {
-			LeaveTransaction lt = new LeaveTransaction(p.getUniqueId().toString(), PlayerInfo.sql.getDB());
+			LeaveTransaction lt = new LeaveTransaction(p.getUniqueId().toString(), PlayerInfo.getSql().getDB());
 			
-			lt.runTaskAsynchronously(PlayerInfo.main);
+			lt.runTaskAsynchronously(PlayerInfo.getMain());
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
